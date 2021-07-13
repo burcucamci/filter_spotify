@@ -120,7 +120,7 @@ def filters():
 
         # Get recommended tracks 
         recommendations = sp.recommendations(seed_artists=artistList, seed_genres=genreList, limit=50,
-                                             country="AU", min_valence=float(minValence), max_valence=float(maxValence),
+                                             country="TR", min_valence=float(minValence), max_valence=float(maxValence),
                                              min_popularity=minPopularity,
                                              max_popularity=maxPopularity)['tracks']
         trackList = []
