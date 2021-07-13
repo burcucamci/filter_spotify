@@ -26,8 +26,8 @@ def login():
         # Authorisation
         token = prompt_for_user_token(username='username',
                                       scope='playlist-read-private user-top-read user-library-read playlist-modify-private playlist-modify-public',
-                                      client_id='ba07775d1854459d9bf4bb1f730055b5',
-                                      client_secret='2c7a38bf64004c05ba1e81b0d4fb499d',
+                                      client_id='...',
+                                      client_secret='...',
                             
                                       redirect_uri='http://localhost:8080')
         sp = Spotify(auth=token)
@@ -44,7 +44,7 @@ def create():
         playlistName = request.form["playlistName"]
         playlistDescription = request.form["playlistDescription"]
         privacyInput = request.form["privacy"]
-        #public ve private kısmı
+        
         if privacyInput == "Public":
             privacy = True
         else:
@@ -118,13 +118,13 @@ def filters():
         elif popularity == "Unpopular Music":
             maxPopularity = 25
 
-        # Get recommended tracks --> öneriler
+        # Get recommended tracks 
         recommendations = sp.recommendations(seed_artists=artistList, seed_genres=genreList, limit=50,
                                              country="AU", min_valence=float(minValence), max_valence=float(maxValence),
                                              min_popularity=minPopularity,
                                              max_popularity=maxPopularity)['tracks']
         trackList = []
-        #append ile playliste ekleme 
+        #append add playlist
         for recommendedTrack in range(len(recommendations)):
             trackList.append(recommendations[recommendedTrack]['uri'])
 
